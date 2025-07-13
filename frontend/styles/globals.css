@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f5;
+}
+input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+}
+button {
+  padding: 0.6rem 1.2rem;
+  background: #ff9900;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

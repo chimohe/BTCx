@@ -1,0 +1,117 @@
+Wrapped Bitcoin Bridge Protocol – White Paper
+
+Version: 1.0
+Project Name: Wrapped Bitcoin Bridge
+Date: July 2025
+
+⸻
+
+Abstract
+
+Wrapped Bitcoin Bridge is a decentralized hybrid protocol that enables users to mint a 1:1 ERC-20 representation of Bitcoin (wBTC) on the Ethereum blockchain. By depositing Bitcoin (BTC) to a monitored address, users trigger the issuance of Wrapped Bitcoin tokens, which can be used in Ethereum DeFi, cross-chain bridges, and retail payment environments. The system uses a trust-minimized off-chain BTC watcher, on-chain smart contracts, and a full-stack user interface to bridge the value of Bitcoin into smart contract ecosystems while preserving user custody and simplicity.
+
+⸻
+
+Motivation
+
+Bitcoin remains the most secure and valuable digital asset, but it lacks native support for DeFi applications, smart contracts, and stable payments. Ethereum, on the other hand, offers powerful programmability but is not compatible with Bitcoin’s base-layer protocol. Wrapped Bitcoin Bridge closes this gap by providing:
+	•	Real BTC deposits with transparent Ethereum issuance
+	•	Decentralized infrastructure for minting and burning wBTC
+	•	Optional conversion to USD-pegged wANY tokens for debit card use
+
+This approach allows Bitcoin holders to participate in modern crypto applications without selling or swapping their BTC.
+
+⸻
+
+System Architecture
+
+The protocol consists of four primary components:
+	1.	Wrapped Bitcoin (wBTC):
+An ERC-20 token representing BTC on Ethereum. It is minted when BTC is deposited to a monitored Bitcoin address and burned when the user requests withdrawal. It is pegged 1:1 to BTC and follows Bitcoin’s 8 decimal precision.
+	2.	BTC Bridge Smart Contract:
+This contract handles minting and burning of wBTC. It ensures each BTC transaction is only processed once by storing transaction IDs on-chain. Minting is triggered by an off-chain watcher, while burning can be initiated by any wBTC holder to signal a BTC withdrawal request.
+	3.	Off-Chain BTC Watcher:
+A background process or server that monitors the Bitcoin blockchain for incoming deposits. It confirms the transaction after a specified number of blocks and then calls the Ethereum smart contract to mint wBTC tokens for the depositor.
+	4.	User Interface (Frontend DApp):
+A web-based application that allows users to view their deposit status, enter BTC transaction IDs, and interact with the bridge to wrap or unwrap wBTC.
+
+⸻
+
+Workflow
+
+Deposit and Minting:
+	•	A user deposits BTC to the monitored Bitcoin address.
+	•	After the transaction is confirmed on the Bitcoin network, the BTC watcher verifies the amount and the sender.
+	•	The watcher calls the Ethereum bridge contract to mint an equivalent amount of wBTC to the user’s Ethereum wallet.
+
+Burn and Withdrawal:
+	•	A user with wBTC initiates a burn transaction via the bridge contract.
+	•	The wBTC is burned on Ethereum and logged on-chain.
+	•	An off-chain process detects the burn and releases the equivalent BTC to the user, manually or via a multisig system.
+
+⸻
+
+Token Characteristics
+
+Wrapped Bitcoin (wBTC) is an ERC-20 token with the following properties:
+	•	Its name is “Wrapped Bitcoin.”
+	•	Its symbol is “wBTC.”
+	•	It uses 8 decimal places, matching native Bitcoin.
+	•	It is pegged 1:1 to BTC, with every token backed by actual Bitcoin held in custody.
+	•	It is minted and burned on demand via the BTCBridge smart contract.
+
+⸻
+
+Security Considerations
+	•	Each Bitcoin transaction is tracked using its unique transaction ID, which is hashed and stored on-chain to prevent double minting.
+	•	Only one minting operation can occur per BTC transaction ID.
+	•	The off-chain BTC watcher is the default oracle, and it requires trust or federation for security.
+	•	Burning wBTC does not automatically release BTC. Human or multisig validation is required for secure manual release of funds.
+
+⸻
+
+Use Cases
+	•	DeFi Participation:
+Users can deposit BTC and use wBTC in Ethereum DeFi protocols such as lending, yield farming, staking, and token swaps.
+	•	Retail Payments:
+Through conversion to wANY (a USDC-backed stable), wBTC holders can spend Bitcoin via debit cards and stablecoin payment rails.
+	•	Cross-Chain Transfers:
+The ERC-20 format of wBTC makes it easy to bridge BTC value to other EVM-compatible blockchains.
+	•	Stable Bitcoin Custody:
+Institutions or wallets can offer BTC exposure while keeping tokens programmable within Ethereum-based apps.
+
+⸻
+
+Roadmap
+
+The roadmap includes several progressive phases:
+	•	Phase 1: Deploy Ethereum smart contracts, implement BTC watcher, and launch basic frontend interface.
+	•	Phase 2: Add support for automated BTC release after burns using multisig authorization.
+	•	Phase 3: Integrate with a stablecoin bridge to convert wBTC into wANY for use with debit cards and point-of-sale systems.
+	•	Phase 4: Launch DAO or multisig-controlled governance for BTC custody and bridge parameters.
+	•	Phase 5: Expand support to additional blockchains such as Polygon, Arbitrum, Avalanche, and zkSync.
+
+⸻
+
+Technology Stack
+
+Wrapped Bitcoin Bridge uses the following tools and technologies:
+	•	Solidity and Hardhat for Ethereum smart contract development and deployment.
+	•	Node.js and Ethers.js for off-chain scripting and watcher automation.
+	•	React and Next.js for the frontend application and wallet integration.
+	•	Docker and Docker Compose for development and deployment environments.
+	•	Infura and Blockstream APIs for blockchain access and Bitcoin data.
+
+⸻
+
+Licensing and Governance
+
+The Wrapped Bitcoin Bridge project is licensed under the MIT License, allowing open and unrestricted use and modification. Over time, the protocol may adopt a decentralized governance model where minting/burning logic is approved by a DAO or trusted federated signers.
+
+⸻
+
+Conclusion
+
+Wrapped Bitcoin Bridge enables Bitcoin holders to engage with the Ethereum ecosystem without selling their BTC. It provides a secure, modular framework to mint and redeem BTC-backed tokens on Ethereum while maintaining control of underlying assets. Whether used for DeFi, stable payments, or cross-chain transfers, the protocol offers a critical link between Bitcoin’s value and Ethereum’s programmability.
+
+Developers, users, and ecosystem partners are invited to contribute, extend, or integrate with the protocol to help build a more connected crypto future.

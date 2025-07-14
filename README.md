@@ -2,11 +2,11 @@
 
 # Wrapped Bitcoin Bridge
 
-This project allows users to deposit BTC and receive Wrapped Bitcoin (wBTC) on Ethereum. It's a hybrid off-chain + smart contract system with a full-stack interface.
+This project allows users to deposit BTC and receive Wrapped Bitcoin (BTCx) on Ethereum. It's a hybrid off-chain + smart contract system with a full-stack interface.
 
 ## Features
 
-- Deposit BTC → mint ERC-20 wBTC
+- Deposit BTC → mint ERC-20 BTCx
 - Burn wBTC → withdraw BTC
 - BTC watcher runs off-chain
 - Frontend for wrap/unwrap interactions
@@ -20,7 +20,7 @@ This project allows users to deposit BTC and receive Wrapped Bitcoin (wBTC) on E
 
 ## Structure
 
-- `contracts/` - wBTC + bridge contracts
+- `contracts/` - BTCx + bridge contracts
 - `btc-watcher/` - BTC monitoring scripts
 - `frontend/` - Web UI
 - `scripts/` - Deploy & interaction scripts

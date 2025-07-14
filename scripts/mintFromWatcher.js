@@ -10,7 +10,7 @@ async function main() {
 
   const tx = await bridge.mintFromBTC(recipient, amount, btcTxId);
   await tx.wait();
-  console.log("Minted wBTC from BTC tx:", btcTxId);
+  console.log("Minted BTCx from BTC tx:", btcTxId);
 }
 
 main().catch(console.error);

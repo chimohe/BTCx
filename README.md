@@ -7,7 +7,7 @@ This project allows users to deposit BTC and receive Wrapped Bitcoin (BTCx) on E
 ## Features
 
 - Deposit BTC → mint ERC-20 BTCx
-- Burn wBTC → withdraw BTC
+- Burn BTCx → withdraw BTC
 - BTC watcher runs off-chain
 - Frontend for wrap/unwrap interactions
 

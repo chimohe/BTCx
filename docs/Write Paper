@@ -8,7 +8,7 @@ Date: July 2025
 
 Abstract
 
-Wrapped Bitcoin Bridge is a decentralized hybrid protocol that enables users to mint a 1:1 ERC-20 representation of Bitcoin (wBTC) on the Ethereum blockchain. By depositing Bitcoin (BTC) to a monitored address, users trigger the issuance of Wrapped Bitcoin tokens, which can be used in Ethereum DeFi, cross-chain bridges, and retail payment environments. The system uses a trust-minimized off-chain BTC watcher, on-chain smart contracts, and a full-stack user interface to bridge the value of Bitcoin into smart contract ecosystems while preserving user custody and simplicity.
+Wrapped Bitcoin Bridge is a decentralized hybrid protocol that enables users to mint a 1:1 ERC-20 representation of Bitcoin (BTCx) on the Ethereum blockchain. By depositing Bitcoin (BTC) to a monitored address, users trigger the issuance of Wrapped Bitcoin tokens, which can be used in Ethereum DeFi, cross-chain bridges, and retail payment environments. The system uses a trust-minimized off-chain BTC watcher, on-chain smart contracts, and a full-stack user interface to bridge the value of Bitcoin into smart contract ecosystems while preserving user custody and simplicity.
 
 ⸻
 
@@ -16,7 +16,7 @@ Motivation
 
 Bitcoin remains the most secure and valuable digital asset, but it lacks native support for DeFi applications, smart contracts, and stable payments. Ethereum, on the other hand, offers powerful programmability but is not compatible with Bitcoin’s base-layer protocol. Wrapped Bitcoin Bridge closes this gap by providing:
 	•	Real BTC deposits with transparent Ethereum issuance
-	•	Decentralized infrastructure for minting and burning wBTC
+	•	Decentralized infrastructure for minting and burning BTCx
 	•	Optional conversion to USD-pegged wANY tokens for debit card use
 
 This approach allows Bitcoin holders to participate in modern crypto applications without selling or swapping their BTC.
@@ -26,14 +26,14 @@ This approach allows Bitcoin holders to participate in modern crypto application
 System Architecture
 
 The protocol consists of four primary components:
-	1.	Wrapped Bitcoin (wBTC):
+	1.	Wrapped Bitcoin (BTCx):
 An ERC-20 token representing BTC on Ethereum. It is minted when BTC is deposited to a monitored Bitcoin address and burned when the user requests withdrawal. It is pegged 1:1 to BTC and follows Bitcoin’s 8 decimal precision.
 	2.	BTC Bridge Smart Contract:
-This contract handles minting and burning of wBTC. It ensures each BTC transaction is only processed once by storing transaction IDs on-chain. Minting is triggered by an off-chain watcher, while burning can be initiated by any wBTC holder to signal a BTC withdrawal request.
+This contract handles minting and burning of BTCx. It ensures each BTC transaction is only processed once by storing transaction IDs on-chain. Minting is triggered by an off-chain watcher, while burning can be initiated by any BTCx holder to signal a BTC withdrawal request.
 	3.	Off-Chain BTC Watcher:
-A background process or server that monitors the Bitcoin blockchain for incoming deposits. It confirms the transaction after a specified number of blocks and then calls the Ethereum smart contract to mint wBTC tokens for the depositor.
+A background process or server that monitors the Bitcoin blockchain for incoming deposits. It confirms the transaction after a specified number of blocks and then calls the Ethereum smart contract to mint BTCx tokens for the depositor.
 	4.	User Interface (Frontend DApp):
-A web-based application that allows users to view their deposit status, enter BTC transaction IDs, and interact with the bridge to wrap or unwrap wBTC.
+A web-based application that allows users to view their deposit status, enter BTC transaction IDs, and interact with the bridge to wrap or unwrap BTCx.
 
 ⸻
 
@@ -42,7 +42,7 @@ Workflow
 Deposit and Minting:
 	•	A user deposits BTC to the monitored Bitcoin address.
 	•	After the transaction is confirmed on the Bitcoin network, the BTC watcher verifies the amount and the sender.
-	•	The watcher calls the Ethereum bridge contract to mint an equivalent amount of wBTC to the user’s Ethereum wallet.
+	•	The watcher calls the Ethereum bridge contract to mint an equivalent amount of BTCx to the user’s Ethereum wallet.
 
 Burn and Withdrawal:
 	•	A user with wBTC initiates a burn transaction via the bridge contract.
@@ -55,7 +55,7 @@ Token Characteristics
 
 Wrapped Bitcoin (wBTC) is an ERC-20 token with the following properties:
 	•	Its name is “Wrapped Bitcoin.”
-	•	Its symbol is “wBTC.”
+	•	Its symbol is “BTCx.”
 	•	It uses 8 decimal places, matching native Bitcoin.
 	•	It is pegged 1:1 to BTC, with every token backed by actual Bitcoin held in custody.
 	•	It is minted and burned on demand via the BTCBridge smart contract.
@@ -72,11 +72,11 @@ Security Considerations
 
 Use Cases
 	•	DeFi Participation:
-Users can deposit BTC and use wBTC in Ethereum DeFi protocols such as lending, yield farming, staking, and token swaps.
+Users can deposit BTC and use BTCx in Ethereum DeFi protocols such as lending, yield farming, staking, and token swaps.
 	•	Retail Payments:
 Through conversion to wANY (a USDC-backed stable), wBTC holders can spend Bitcoin via debit cards and stablecoin payment rails.
 	•	Cross-Chain Transfers:
-The ERC-20 format of wBTC makes it easy to bridge BTC value to other EVM-compatible blockchains.
+The ERC-20 format of BTCx makes it easy to bridge BTC value to other EVM-compatible blockchains.
 	•	Stable Bitcoin Custody:
 Institutions or wallets can offer BTC exposure while keeping tokens programmable within Ethereum-based apps.
 

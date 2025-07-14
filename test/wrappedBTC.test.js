@@ -7,15 +7,15 @@ describe("WrappedBTC", () => {
   beforeEach(async () => {
     [owner, user] = await ethers.getSigners();
     const WrappedBTC = await ethers.getContractFactory("WrappedBTC");
-    wBTC = await WrappedBTC.deploy();
-    await wBTC.deployed();
+    BTCx = await WrappedBTC.deploy();
+    await BTCx.deployed();
   });
 
   it("should mint and burn tokens", async () => {
-    await wBTC.mint(user.address, 1000);
-    expect(await wBTC.balanceOf(user.address)).to.equal(1000);
+    await BTCx.mint(user.address, 1000);
+    expect(await xBTC.balanceOf(user.address)).to.equal(1000);
 
-    await wBTC.burn(user.address, 500);
-    expect(await wBTC.balanceOf(user.address)).to.equal(500);
+    await BTCx.burn(user.address, 500);
+    expect(await BTCx.balanceOf(user.address)).to.equal(500);
   });
 });

@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract WrappedBTC is ERC20, Ownable {
-    constructor() ERC20("Wrapped Bitcoin", "wBTC") {}
+    constructor() ERC20("Wrapped Bitcoin", "BTCx") {}
 
     function mint(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);

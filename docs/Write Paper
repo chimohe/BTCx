@@ -45,15 +45,15 @@ Deposit and Minting:
 	•	The watcher calls the Ethereum bridge contract to mint an equivalent amount of BTCx to the user’s Ethereum wallet.
 
 Burn and Withdrawal:
-	•	A user with wBTC initiates a burn transaction via the bridge contract.
-	•	The wBTC is burned on Ethereum and logged on-chain.
+	•	A user with BTCx initiates a burn transaction via the bridge contract.
+	•	The BTCx is burned on Ethereum and logged on-chain.
 	•	An off-chain process detects the burn and releases the equivalent BTC to the user, manually or via a multisig system.
 
 ⸻
 
 Token Characteristics
 
-Wrapped Bitcoin (wBTC) is an ERC-20 token with the following properties:
+Wrapped Bitcoin (BTCx) is an ERC-20 token with the following properties:
 	•	Its name is “Wrapped Bitcoin.”
 	•	Its symbol is “BTCx.”
 	•	It uses 8 decimal places, matching native Bitcoin.
@@ -74,7 +74,7 @@ Use Cases
 	•	DeFi Participation:
 Users can deposit BTC and use BTCx in Ethereum DeFi protocols such as lending, yield farming, staking, and token swaps.
 	•	Retail Payments:
-Through conversion to wANY (a USDC-backed stable), wBTC holders can spend Bitcoin via debit cards and stablecoin payment rails.
+Through conversion to wANY (a USDC-backed stable), BTCx holders can spend Bitcoin via debit cards and stablecoin payment rails.
 	•	Cross-Chain Transfers:
 The ERC-20 format of BTCx makes it easy to bridge BTC value to other EVM-compatible blockchains.
 	•	Stable Bitcoin Custody:

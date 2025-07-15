@@ -1,0 +1,122 @@
+How to Replace Placeholder Code in BTCx
+
+This guide explains how to locate and replace all placeholder values in the BTCx codebase so your deployment is fully configured and production-ready.
+
+⸻
+
+1. Replace Contract Addresses
+
+In files like deploy.js, config.js, and UI components, look for:
+
+0xBRIDGE_CONTRACT_ADDRESS
+0xTOKEN_CONTRACT_ADDRESS
+
+Replace these with your actual deployed contract addresses after deployment.
+
+⸻
+
+2. Update Token Name and Symbol
+
+In the token contract file, update this line:
+
+ERC20(“Token Name”, “SYMBOL”)
+
+to match your brand, for example:
+
+ERC20(“BTCx Token”, “BTCx”)
+
+This controls how the token name and symbol appear in wallets and explorers.
+
+⸻
+
+3. Update Logo and Branding
+
+Replace the default logo file (e.g., btc-logo.svg) with your project’s custom logo.
+Update all labels, text, and documentation to reflect your branding:
+
+Change “Placeholder Token” or similar to “BTCx”
+Update headers, page titles, and README content
+
+⸻
+
+4. Replace Bitcoin Deposit Address
+
+In the BTC watcher configuration file, replace:
+
+“your-btc-receive-address”
+
+with the real Bitcoin address that users will deposit to.
+This address should be monitored and securely controlled.
+
+⸻
+
+5. Replace Placeholder Transaction Hashes
+
+In development or test scripts, find transaction ID placeholders like:
+
+ethers.keccak256(ethers.toUtf8Bytes(“dummy_tx_hash”))
+
+Replace these with actual Bitcoin transaction hashes or dynamic values retrieved by your deposit watcher.
+
+⸻
+
+6. Replace Environment Variables
+
+In your .env file, replace placeholder keys with real credentials:
+
+PRIVATE_KEY=0xyourEthereumDeployerKey
+INFURA_API_KEY=yourInfuraOrAlchemyProjectID
+
+Ensure this file is securely stored and not committed to GitHub.
+
+⸻
+
+7. Replace Watcher Logic for BTC Confirmations
+
+In the BTC watcher script, ensure the logic correctly detects incoming Bitcoin deposits.
+Update confirmation thresholds, deposit value calculations, and API endpoints as needed.
+Use a reliable service like a full node, ElectrumX, or trusted third-party API.
+
+⸻
+
+8. Update Frontend Labels and Placeholder Text
+
+Review frontend files such as WrapUnwrapForm.js, BTCDepositStatus.js, and UI components.
+
+Replace default text like:
+
+“Submit Deposit”
+“Simulated deposit submitted”
+“Placeholder Token”
+
+With custom copy such as:
+
+“Initiate Bitcoin Deposit”
+“BTC Detected — Awaiting Confirmation”
+“BTCx Token Amount”
+
+Update all user-facing wording to align with your branding and token use case.
+
+⸻
+
+9. Replace Hardcoded Test Values
+
+In test files and script files, replace mock values such as:
+
+“test_tx_hash”
+“1000”
+“0.01”
+
+with realistic BTC transaction values and token amounts that reflect your application.
+Use BTC decimal precision (8 decimals) when necessary.
+
+⸻
+
+10. Final Review and QA
+
+Before deploying or sharing the repository:
+	•	Confirm all contract addresses are current
+	•	Confirm no testnet or placeholder transaction hashes remain
+	•	Confirm all branding reflects “BTCx” or your chosen name
+	•	Confirm environment keys are set and .env is excluded from version control
+	•	Confirm frontend UI matches your intended design and messaging
